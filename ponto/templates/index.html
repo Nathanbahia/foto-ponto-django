@@ -1,0 +1,49 @@
+{% load static %}
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SulConta</title>
+    <meta charset="utf-8">
+    {% bootstrap_css %}
+    <style>
+        #capturar {
+            background-image: url({% static 'img/camera.png' %});
+            background-size: 64px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: transparent;
+            border: black 2px solid;
+            border-radius: 100%;
+            padding: 20px;
+            width: 84px;
+            height: 84px;
+        }
+    </style>
+</head>
+<body class="container">
+
+    <header class="text-center mb-5">
+        <img src="{% static 'img/logo.png' %}">
+        <h1 class="m-auto">Controle de Ponto</h1>
+    </header>    
+    <form method="post" action="{% url 'index' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button class="" id="capturar"></button>
+        {% buttons %}
+            <button class="btn btn-primary mt-5">Salvar</button>
+        {% endbuttons %}
+    </form>
+    {% bootstrap_messages %}
+{% bootstrap_javascript jquery="full" %}
+
+<script>
+    $("#id_foto").hide();    
+    $("#capturar").on("click", function (){
+        $("#id_foto").trigger("click");
+    })
+
+</script>
+</body>
+</html>

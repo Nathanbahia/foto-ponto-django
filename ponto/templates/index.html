@@ -1,91 +1,64 @@
 {% load static %}
 {% load bootstrap4 %}
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <title>SulConta</title>
+    <title>Sul Conta</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="minimum-scale=1 maximum-scale=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+    <link rel="icon" href="{% static 'img/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% bootstrap_css %}
-    <style>
 
-        html, body {
-            background-color: #cccs;
-            width: 360px;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-
-        header {
-            margin-bottom: 120px;
-        }
-
-        .salvar {
-            width: 300px;
-            position: fixed;
-            bottom: 60px;
-            left: 30px;
-        }
-
-        .message {
-            width: 300px;
-            margin: auto;
-        }
-
-        #capturar {
-            background-image: url({% static 'img/camera.png' %});
-            background-size: 64px;
-            background-position: center;
-            background-repeat: no-repeat;
-            border: black 2px solid;
-            border-radius: 100%;
-            padding: 20px;
-            width: 84px;
-            height: 84px;
-        }
-    </style>
 </head>
-<body>
+
+<body class="container">
 
     <header class="text-center">
-        <img src="{% static 'img/logo.png' %}" width="300">
-        <h3 class="m-auto">Controle de Ponto</h3>
+        <img src="{% static 'img/logo.png' %}">
+        <h3 class="">Controle de Ponto</h3>
     </header>
     
-    <form method="post" action="{% url 'index' %}" enctype="multipart/form-data" class="text-center">
+    <form method="post" action="" enctype="multipart/form-data" class="text-center">
+        
         {% csrf_token %}
+        
         {% bootstrap_form form %}
-        <button class="" id="capturar"></button><br><br>
+        
+        <button class="" id="capturar"></button>
+        <br><br>
+        
         <label id="filename"></label>
+        
         {% buttons %}
-            <button class="btn btn-primary mt-5 salvar">Salvar</button>
+        <button class="btn btn-primary mt-5 salvar">Salvar</button>
         {% endbuttons %}
 
-        <div class="message">
-            {% bootstrap_messages %}
-        </div>
+        <div class="message">{% bootstrap_messages %}</div>
 
     </form>
 
-{% bootstrap_javascript jquery="full" %}
+    {% bootstrap_javascript jquery="full" %}
 
-<script>
-    $("label").text("");
+    <script>
 
-    $("#id_foto").hide();    
+        $("label").text("");
 
-    $("#id_foto").attr("camera", "");
+        $("#id_foto").hide();    
 
-    $("#capturar").on("click", function (){
-        $("#id_foto").trigger("click");
-    })
+        $("#id_foto").attr("capture", "camera");
 
-    $("#id_foto").on("change", function () {
-        $("#filename").text($(this).val());
-        $("#capturar").css("backgroundColor", "green");
-    })
+        $("#capturar").on("click", function (){
+            $("#id_foto").trigger("click");
+        })
 
-</script>
+        $("#id_foto").on("change", function () {
+            $("#filename").text($(this).val());
+            $("#capturar").css("backgroundColor", "green");
+        })
+
+    </script>
+
 </body>
+
 </html>

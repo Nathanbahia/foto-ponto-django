@@ -9,7 +9,7 @@ def index(request):
     if str(request.method) == "POST":
         form = PontoForm(request.POST, request.FILES)
         if form.is_valid():
-            data = datetime.now().date()
+            data = datetime.now().strftime("%d/%m/%Y | %H:%M:%S")
             nome = request.user
             foto = form.cleaned_data['foto']
             

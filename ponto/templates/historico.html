@@ -4,8 +4,12 @@
 
     {% block content %}
 
-    <h3>Últimas fotos</h3>
-    <a href="{% url 'index' %}" class="text-light mb-5">Retornar</a>
+    <div class="text-center">
+        <h3>Últimas fotos</h3>
+    </div>
+    <a href="{% url 'index' %}" class="text-light mb-5">
+        <small>Retornar</small>    
+    </a>
 
     {% for p in pontos %}
 

@@ -5,19 +5,19 @@
     "short_name": "SULGIPE",
     "icons": [
       {
-        "src": "logo.png",      
+        "src": "splash.png",      
         "type": "image/png",
         "purpose": "any maskable",
         "sizes": "144x144"
       },
       {
-        "src": "logo.png",      
+        "src": "splash.png",      
         "type": "image/png",
         "purpose": "any maskable",
         "sizes": "192x192"
       },
       {
-        "src": "logo.png",
+        "src": "splash.png",
         "sizes": "512x512",
         "type": "image/png",
         "purpose": "any maskable"

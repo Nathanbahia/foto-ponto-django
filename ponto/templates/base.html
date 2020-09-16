@@ -3,13 +3,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <script src="{% static 'js/sw.js' %}"></script>
+    
     <title>SULGIPE</title>
     <meta charset="utf-8">    
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">  
 	<meta name="autor" content="Nathan Batitsta de Assis Bahia">    
 	<meta name="description" content="Controle de registro de ponto via foto para a emrpesa SULGIPE">    
 	<link href="{% static 'img/logo.png' %}" rel="shortcut icon" type="image/x-icon">
-	<link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="{% static 'js/manifest.json' %}">
+    
     {% bootstrap_css %}
     {% bootstrap_javascript jquery="full" %}
     <style>

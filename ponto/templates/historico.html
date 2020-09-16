@@ -5,8 +5,7 @@
 <head>
     <title>Sul Conta</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
-    <link rel="icon" href="{% static 'img/logo.png' %}">    
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">    
     {% bootstrap_css %}
 
     <style>
@@ -53,17 +52,18 @@
 <body class="container">
 
     <header class="text-center">
-        <img src="{% static 'img/logo.png' %}">
+        <img src="{% static 'img/logo.jpg' %}">
         <h3 class="">Últimas fotos</h3>
         <a href="{% url 'index' %}">Retornar</a>
     </header>
     
     {% for p in pontos %}
 
-    <div class="card">
+    <div class="card p-3">
         <div class="card-title">
-            <h5>{{ p.nome }}</h5>
-            <p>{{ p.data }}</p>            
+            <h5>Matrícula: {{ p.matricula }}</h5>
+            <p>Data: {{ p.data }}</p>
+            <p>Aves: {{ p.aves }}</p>            
         </div>
         <div class="card-body">
             <img src="{{ p.foto.url }}">

@@ -4,4 +4,4 @@ from .models import Ponto
 
 @admin.register(Ponto)
 class PontoAdmin(admin.ModelAdmin):
-    list_display = ['data', 'nome', 'foto']
+    list_display = ['matricula', 'aves', 'foto']

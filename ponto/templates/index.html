@@ -5,8 +5,7 @@
 <head>
     <title>Sul Conta</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
-    <link rel="icon" href="{% static 'img/logo.png' %}">    
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">    
     {% bootstrap_css %}
 
     <style>
@@ -53,7 +52,7 @@
 <body class="container">
 
     <header class="text-center">
-        <img src="{% static 'img/logo.png' %}">
+        <img src="{% static 'img/logo.jpg' %}">
         <h3 class="">Controle de Ponto</h3>
         <a href="{% url 'historico' %}">Histórico</a>
     </header>
@@ -64,13 +63,13 @@
         
         {% bootstrap_form form %}
         
-        <button class="" id="capturar"></button>
+        <div type="" class="" id="capturar"></div>
         <br><br>
         
         <label id="filename"></label>
         
         {% buttons %}
-        <button class="btn btn-primary mt-5 salvar">Salvar</button>
+        <button class="btn btn-primary mt-5 salvar">Enviar</button>
         {% endbuttons %}
 
         <div class="message">{% bootstrap_messages %}</div>

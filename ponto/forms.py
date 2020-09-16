@@ -5,4 +5,4 @@ from .models import Ponto
 class PontoForm(forms.ModelForm):
     class Meta:
         model = Ponto
-        fields = ['foto']
+        fields = ['matricula', 'aves', 'foto']

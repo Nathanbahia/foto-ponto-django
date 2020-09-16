@@ -10,10 +10,10 @@ def index(request):
         form = PontoForm(request.POST, request.FILES)
         if form.is_valid():
             data = datetime.now().strftime("%d/%m/%Y | %H:%M:%S")
-            nome = request.user
-            foto = form.cleaned_data['foto']
-            
-            ponto = Ponto(data=data, nome=nome, foto=foto)
+            matricula = form.cleaned_data['matricula']            
+            aves = form.cleaned_data['aves']            
+            foto = form.cleaned_data['foto']            
+            ponto = Ponto(data=data, matricula=matricula, aves=aves, foto=foto)
             ponto.save()
 
             messages.success(request, "Foto salva com sucesso.")

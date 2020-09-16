@@ -54,49 +54,25 @@
 
     <header class="text-center">
         <img src="{% static 'img/logo.png' %}">
-        <h3 class="">Controle de Ponto</h3>
-        <a href="{% url 'historico' %}">Histórico</a>
+        <h3 class="">Últimas fotos</h3>
+        <a href="{% url 'index' %}">Retornar</a>
     </header>
     
-    <form method="post" action="" enctype="multipart/form-data" class="text-center">
-        
-        {% csrf_token %}
-        
-        {% bootstrap_form form %}
-        
-        <button class="" id="capturar"></button>
-        <br><br>
-        
-        <label id="filename"></label>
-        
-        {% buttons %}
-        <button class="btn btn-primary mt-5 salvar">Salvar</button>
-        {% endbuttons %}
+    {% for p in pontos %}
 
-        <div class="message">{% bootstrap_messages %}</div>
+    <div class="card">
+        <div class="card-title">
+            <h5>{{ p.nome }}</h5>
+            <p>{{ p.data }}</p>            
+        </div>
+        <div class="card-body">
+            <img src="{{ p.foto.url }}">
+        </div>
+    </div>
 
-    </form>
+    {% endfor %}
 
     {% bootstrap_javascript jquery="full" %}
-
-    <script>
-
-        $("label").text("");
-
-        $("#id_foto").hide();    
-
-        $("#id_foto").attr("capture", "camera");
-
-        $("#capturar").on("click", function (){
-            $("#id_foto").trigger("click");
-        })
-
-        $("#id_foto").on("change", function () {
-            $("#filename").text($(this).val());
-            $("#capturar").css("backgroundColor", "green");
-        })
-
-    </script>
 
 </body>
 

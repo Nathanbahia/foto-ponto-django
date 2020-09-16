@@ -26,3 +26,9 @@ def index(request):
     context = {'form': form}
 
     return render(request, 'index.html', context)
+
+
+def historico(request):
+    pontos = Ponto.objects.all()[:7]
+    context = {'pontos': pontos}
+    return render(request, 'historico.html', context)

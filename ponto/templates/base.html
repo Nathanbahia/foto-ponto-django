@@ -17,8 +17,10 @@
             padding: 0;
         }
 
-        img {
-            width: 300px;
+        #logo {
+            width: 200px;
+            margin-top: -10px;
+            margin-bottom: -100px;
         }
 
         .card img {
@@ -74,7 +76,7 @@
 <body class="container">
 
     <header class="text-center">
-        <img src="{% static 'img/logo.png' %}">                
+        <img src="{% static 'img/logo.png' %}" id="logo">                
     </header>
 
     {% block content %}

@@ -8,16 +8,13 @@
     <a href="{% url 'historico' %}" class="text-light mb-5">Histórico</a>
     
 
-    <form method="post" action="" enctype="multipart/form-data" class="text-center mt-5">
+    <form method="post" action="" enctype="multipart/form-data" class="text-center mt-2">
 
         {% csrf_token %}
 
         {% bootstrap_form form %}
 
-        <div type="" class="" id="capturar"></div>
-        <br><br>
-
-        <label id="filename"></label>
+        <div type="" class="" id="capturar"></div>       
 
         {% buttons %}
         <button class="btn btn-primary mt-2 salvar w-100 text-bold">Enviar</button>
@@ -37,8 +34,7 @@
             $("#id_foto").trigger("click");
         })
 
-        $("#id_foto").on("change", function () {
-            $("#filename").text($(this).val());
+        $("#id_foto").on("change", function () {            
             $("#capturar").css("backgroundColor", "green");
         })
 

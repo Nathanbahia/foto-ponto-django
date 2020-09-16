@@ -3,11 +3,7 @@
 {% load bootstrap4 %}
     
     {% block content %}
-
-    <h3>Registro de Vistoria</h3>
-    <a href="{% url 'historico' %}" class="text-light mb-5">Histórico</a>
-    
-
+   
     <form method="post" action="" enctype="multipart/form-data" class="text-center mt-2">
 
         {% csrf_token %}
@@ -21,6 +17,10 @@
         {% endbuttons %}
 
         <div class="message">{% bootstrap_messages %}</div>
+
+        <a href="{% url 'historico' %}" class="text-light mb-5">
+            <small>Histórico</small>
+        </a>
 
     </form>    
 

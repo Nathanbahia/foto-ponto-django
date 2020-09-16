@@ -3,18 +3,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Sul Conta</title>
+    <title>SULGIPE</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">    
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
     {% bootstrap_css %}
 
     <style>
         body {
-            background: #ccc !important;
+            background: #fff !important;
             width: 100vw;
-            height: 100vh;    
+            height: 100vh;
             margin: 0;
-            padding: 0;    
+            padding: 0;
         }
 
         img {
@@ -22,7 +22,13 @@
         }
 
         header {
-            margin-bottom: 90px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            width: 300px;
+            text-align: center;
+            margin: auto;
         }
 
         .salvar {
@@ -44,6 +50,7 @@
             padding: 20px;
             width: 84px;
             height: 84px;
+            margin: auto;
         }
     </style>
 
@@ -52,24 +59,24 @@
 <body class="container">
 
     <header class="text-center">
-        <img src="{% static 'img/logo.jpg' %}">
+        <img src="{% static 'img/logo.jpeg' %}">
         <h3 class="">Controle de Ponto</h3>
         <a href="{% url 'historico' %}">Histórico</a>
     </header>
-    
+
     <form method="post" action="" enctype="multipart/form-data" class="text-center">
-        
+
         {% csrf_token %}
-        
+
         {% bootstrap_form form %}
-        
+
         <div type="" class="" id="capturar"></div>
         <br><br>
-        
+
         <label id="filename"></label>
-        
+
         {% buttons %}
-        <button class="btn btn-primary mt-5 salvar">Enviar</button>
+        <button class="btn btn-primary mt-5 salvar w-100 text-bold">Enviar</button>
         {% endbuttons %}
 
         <div class="message">{% bootstrap_messages %}</div>
@@ -80,9 +87,7 @@
 
     <script>
 
-        $("label").text("");
-
-        $("#id_foto").hide();    
+        $("#id_foto").hide();
 
         $("#id_foto").attr("capture", "camera");
 

@@ -3,48 +3,34 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Sul Conta</title>
+    <title>SULGIPE</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">    
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
     {% bootstrap_css %}
 
     <style>
         body {
-            background: #ccc !important;
+            background: #fff !important;
             width: 100vw;
-            height: 100vh;    
+            height: 100vh;
             margin: 0;
-            padding: 0;    
+            padding: 0;
         }
 
         img {
             width: 300px;
         }
 
+        .card img {
+            width: 100%;
+            max-width: 100%;
+        }
+
+
         header {
-            margin-bottom: 90px;
+            margin-bottom: 20px;
         }
 
-        .salvar {
-            width: 300px;
-        }
-
-        .message {
-            width: 300px;
-            margin: auto;
-        }
-
-        #capturar {
-            background-image: url("{% static 'img/camera.png' %}");
-            background-size: 64px;
-            background-position: center;
-            background-repeat: no-repeat;
-            border: black 2px solid;
-            border-radius: 100%;
-            padding: 20px;
-            width: 84px;
-            height: 84px;
-        }
     </style>
 
 </head>
@@ -52,21 +38,20 @@
 <body class="container">
 
     <header class="text-center">
-        <img src="{% static 'img/logo.jpg' %}">
+        <img src="{% static 'img/logo.jpeg' %}">
         <h3 class="">Últimas fotos</h3>
         <a href="{% url 'index' %}">Retornar</a>
     </header>
-    
+
     {% for p in pontos %}
 
     <div class="card p-3">
         <div class="card-title">
-            <h5>Matrícula: {{ p.matricula }}</h5>
-            <p>Data: {{ p.data }}</p>
-            <p>Aves: {{ p.aves }}</p>            
+            <h5>Data: {{ p.data }}</h5>
+            <p>Mat: {{ p.matricula }} | Aves no local: {{ p.aves }}</p>
         </div>
-        <div class="card-body">
-            <img src="{{ p.foto.url }}">
+        <div class="card-body text-center">
+            <img src="{{ p.foto.url }}" width="280">
         </div>
     </div>
 

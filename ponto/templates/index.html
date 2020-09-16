@@ -6,9 +6,47 @@
     <title>Sul Conta</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
-    <link rel="icon" href="{% static 'img/logo.png' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="{% static 'img/logo.png' %}">    
     {% bootstrap_css %}
+
+    <style>
+        body {
+            background: #ccc !important;
+            width: 100vw;
+            height: 100vh;    
+            margin: 0;
+            padding: 0;    
+        }
+
+        img {
+            width: 300px;
+        }
+
+        header {
+            margin-bottom: 90px;
+        }
+
+        .salvar {
+            width: 300px;
+        }
+
+        .message {
+            width: 300px;
+            margin: auto;
+        }
+
+        #capturar {
+            background-image: url("{% static 'img/camera.png' %}");
+            background-size: 64px;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: black 2px solid;
+            border-radius: 100%;
+            padding: 20px;
+            width: 84px;
+            height: 84px;
+        }
+    </style>
 
 </head>
 

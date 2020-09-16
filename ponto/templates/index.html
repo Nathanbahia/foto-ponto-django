@@ -1,70 +1,14 @@
+{% extends 'base.html' %}
 {% load static %}
 {% load bootstrap4 %}
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <title>SULGIPE</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
-    {% bootstrap_css %}
+    
+    {% block content %}
 
-    <style>
-        body {
-            background: #fff !important;
-            width: 100vw;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-        }
+    <h3>Registro de Vistoria</h3>
+    <a href="{% url 'historico' %}" class="text-light mb-5">Histórico</a>
+    
 
-        img {
-            width: 300px;
-        }
-
-        header {
-            margin-bottom: 20px;
-        }
-
-        form {
-            width: 300px;
-            text-align: center;
-            margin: auto;
-        }
-
-        .salvar {
-            width: 300px;
-        }
-
-        .message {
-            width: 300px;
-            margin: auto;
-        }
-
-        #capturar {
-            background-image: url("{% static 'img/camera.png' %}");
-            background-size: 64px;
-            background-position: center;
-            background-repeat: no-repeat;
-            border: black 2px solid;
-            border-radius: 100%;
-            padding: 20px;
-            width: 84px;
-            height: 84px;
-            margin: auto;
-        }
-    </style>
-
-</head>
-
-<body class="container">
-
-    <header class="text-center">
-        <img src="{% static 'img/logo.jpeg' %}">
-        <h3 class="">Controle de Ponto</h3>
-        <a href="{% url 'historico' %}">Histórico</a>
-    </header>
-
-    <form method="post" action="" enctype="multipart/form-data" class="text-center">
+    <form method="post" action="" enctype="multipart/form-data" class="text-center mt-5">
 
         {% csrf_token %}
 
@@ -76,14 +20,12 @@
         <label id="filename"></label>
 
         {% buttons %}
-        <button class="btn btn-primary mt-5 salvar w-100 text-bold">Enviar</button>
+        <button class="btn btn-primary mt-2 salvar w-100 text-bold">Enviar</button>
         {% endbuttons %}
 
         <div class="message">{% bootstrap_messages %}</div>
 
-    </form>
-
-    {% bootstrap_javascript jquery="full" %}
+    </form>    
 
     <script>
 
@@ -102,6 +44,4 @@
 
     </script>
 
-</body>
-
-</html>
+    {% endblock %}

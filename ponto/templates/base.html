@@ -1,0 +1,88 @@
+{% load static %}
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>SULGIPE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery="full" %}
+    <style>
+        body {
+            background-image: linear-gradient(#337eaa86, #ccc, #337eaa86);
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            width: 300px;
+        }
+
+        .card img {
+            width: 100%;
+            max-width: 100%;
+        }        
+
+        header {
+            margin-bottom: 20px;
+        }
+
+        form {
+            width: 300px;
+            text-align: center;
+            margin: auto;
+        }
+
+        label, a, h3 {
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        h3 {
+            font-size: 22px;
+        }
+
+        .salvar {
+            width: 300px;
+        }
+
+        .message {
+            width: 300px;
+            margin: auto;
+        }
+
+        #capturar {
+            background-image: url("{% static 'img/camera.png' %}");
+            background-size: 64px;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: black 2px solid;
+            border-radius: 100%;
+            padding: 20px;
+            width: 84px;
+            height: 84px;
+            margin: auto;
+        }
+    </style>
+
+</head>
+
+<body class="container">
+
+    <header class="text-center">
+        <img src="{% static 'img/logo.png' %}">                
+    </header>
+
+    {% block content %}
+
+    {% endblock %}
+
+
+
+</body>
+
+</html>

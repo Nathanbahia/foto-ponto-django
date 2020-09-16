@@ -1,51 +1,15 @@
+{% extends 'base.html' %}
 {% load static %}
 {% load bootstrap4 %}
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <title>SULGIPE</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
-    {% bootstrap_css %}
 
-    <style>
-        body {
-            background: #fff !important;
-            width: 100vw;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-        }
+    {% block content %}
 
-        img {
-            width: 300px;
-        }
-
-        .card img {
-            width: 100%;
-            max-width: 100%;
-        }
-
-
-        header {
-            margin-bottom: 20px;
-        }
-
-    </style>
-
-</head>
-
-<body class="container">
-
-    <header class="text-center">
-        <img src="{% static 'img/logo.jpeg' %}">
-        <h3 class="">Últimas fotos</h3>
-        <a href="{% url 'index' %}">Retornar</a>
-    </header>
+    <h3>Últimas fotos</h3>
+    <a href="{% url 'index' %}" class="text-light mb-5">Retornar</a>
 
     {% for p in pontos %}
 
-    <div class="card p-3">
+    <div class="card p-3 mb-3">
         <div class="card-title">
             <h5>Data: {{ p.data }}</h5>
             <p>Mat: {{ p.matricula }} | Aves no local: {{ p.aves }}</p>
@@ -57,8 +21,4 @@
 
     {% endfor %}
 
-    {% bootstrap_javascript jquery="full" %}
-
-</body>
-
-</html>
+    {% endblock %}

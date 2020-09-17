@@ -3,6 +3,10 @@
 {% load bootstrap4 %}
     
     {% block content %}
+
+    <div class="loading">
+        <img src="{% static 'img/load.gif' %}" alt="gif de carregamento">
+    </div>
    
     <form method="post" action="" enctype="multipart/form-data" class="text-center mt-2">
 
@@ -13,7 +17,7 @@
         <div type="" class="" id="capturar"></div>       
 
         {% buttons %}
-        <button class="btn btn-primary mt-2 salvar w-100 text-bold">Enviar</button>
+        <button class="btn btn-primary mt-2 salvar w-100 text-bold enviar">Enviar</button>
         {% endbuttons %}
 
         <div class="message">{% bootstrap_messages %}</div>
@@ -26,12 +30,24 @@
 
     <script>
 
+        $(".loading").hide();        
+
         $("#id_foto").hide();
 
         $("#id_foto").attr("capture", "camera");
 
         $("#capturar").on("click", function (){
-            $("#id_foto").trigger("click");
+            $("#id_foto").trigger("click");            
+        })
+
+        $(".enviar").on("click", function (){
+            $(".loading").show();
+            $(".loading").css({
+                "position": "absolute",
+                "left": "50%",
+                "top": "20%",
+                "z-index": "999999"
+            })
         })
 
         $("#id_foto").on("change", function () {            

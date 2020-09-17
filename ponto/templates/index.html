@@ -41,13 +41,20 @@
         })
 
         $(".enviar").on("click", function (){
-            $(".loading").show();
-            $(".loading").css({
-                "position": "absolute",
-                "left": "50%",
-                "top": "20%",
-                "z-index": "999999"
-            })
+            if (
+                $("#id_matricula").val() != "" &&
+                $("#id_aves").val)() != "" &&
+                $("#id_foto").val() != ""
+            ) {
+                $(".loading").show();
+                $(".loading").css({
+                    "position": "absolute",
+                    "left": "25%",
+                    "top": "20%",
+                    "width": "200px",
+                    "height": "200px"
+                })
+            }            
         })
 
         $("#id_foto").on("change", function () {            

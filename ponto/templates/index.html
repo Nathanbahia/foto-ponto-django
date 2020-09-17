@@ -9,13 +9,13 @@
         <img src="{% static 'img/load.gif' %}" alt="gif de carregamento">
     </div>
 
-    <form method="post" action="" enctype="multipart/form-data" class="text-center mt-2">
+    <form method="post" action="" enctype="multipart/form-data" class="text-center mt-2" autocomplete="off">
 
         {% csrf_token %}
 
         {% bootstrap_form form %}
 
-        <div type="" class="" id="capturar"></div>
+        <div type="" class="mb-5" id="capturar"></div>
 
         {% buttons %}
         <button class="btn btn-primary mt-2 salvar w-100 text-bold enviar">Enviar</button>
@@ -34,6 +34,11 @@
         $(".blank").hide();
         $(".loading").hide();
 
+        $("#id_matricula").attr("type", "number");
+        $("#id_matricula").attr("placeholder", "");
+        $("#id_matricula").attr("min", "1");
+        $("#id_matricula").attr("max", "999999");
+
         $("#id_foto").hide();
 
         $("#id_foto").attr("capture", "camera");
@@ -44,6 +49,8 @@
 
         $(".enviar").on("click", function (){
             if (
+                parseInt($("#id_matricula").val()) > 0 &&
+                parseInt($("#id_matricula").val()) <= 999999 &&
                 $("#id_matricula").val() != "" &&
                 $("#id_aves").val() != "" &&
                 $("#id_foto").val() != ""
@@ -70,7 +77,7 @@
         })
 
         $("#id_foto").on("change", function () {
-            $("#capturar").css("backgroundColor", "green");
+            $("#capturar").css("backgroundColor", "#007bff");
         })
 
     </script>

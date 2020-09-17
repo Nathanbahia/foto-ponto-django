@@ -2,17 +2,17 @@
 {% load bootstrap4 %}
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>        
+<head>
     <title>SULGIPE</title>
     <meta charset="utf-8">
-    <meta name="theme-color" content="#ffffff">   
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">  
-	<meta name="autor" content="Nathan Batitsta de Assis Bahia">    
-	<meta name="description" content="Controle de registro de ponto via foto para a emrpesa SULGIPE">    
+    <meta name="theme-color" content="#337eaa">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta name="autor" content="Nathan Batitsta de Assis Bahia">
+	<meta name="description" content="Controle de registro de ponto via foto para a emrpesa SULGIPE">
     <link rel="shortcut icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{% static 'img/logo.png' %}">
     <link rel="manifest" href="{% static 'js/manifest.json' %}">
-    
+
     {% bootstrap_css %}
     {% bootstrap_javascript jquery="full" %}
     <style>
@@ -26,14 +26,14 @@
 
         #logo {
             width: 200px;
-            margin-top: -40px;
+            margin-top: -10px;
             margin-bottom: -40px;
         }
 
         .card img {
             width: 100%;
             max-width: 100%;
-        }        
+        }
 
         header {
             margin-bottom: 20px;
@@ -83,7 +83,7 @@
 <body class="container">
 
     <header class="text-center">
-        <img src="{% static 'img/logo.png' %}" id="logo">                
+        <img src="{% static 'img/logo.png' %}" id="logo">
     </header>
 
     {% block content %}

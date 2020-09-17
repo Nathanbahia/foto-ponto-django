@@ -5,13 +5,13 @@
     "short_name": "SULGIPE",
     "icons": [
       {
-        "src": "splash.png",      
+        "src": "splash.png",
         "type": "image/png",
         "purpose": "any maskable",
         "sizes": "144x144"
       },
       {
-        "src": "splash.png",      
+        "src": "splash.png",
         "type": "image/png",
         "purpose": "any maskable",
         "sizes": "192x192"
@@ -23,8 +23,8 @@
         "purpose": "any maskable"
       }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "theme_color": "#337eaa",
+    "background_color": "#337eaa",
     "start_url": "{% url 'ponto:index' %}",
     "display": "standalone",
     "orientation": "natural"

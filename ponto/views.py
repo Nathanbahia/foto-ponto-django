@@ -10,9 +10,9 @@ def index(request):
         form = PontoForm(request.POST, request.FILES)
         if form.is_valid():
             data = datetime.now().strftime("%d/%m/%Y | %H:%M:%S")
-            matricula = form.cleaned_data['matricula']            
-            aves = form.cleaned_data['aves']            
-            foto = form.cleaned_data['foto']            
+            matricula = form.cleaned_data['matricula']
+            aves = form.cleaned_data['aves']
+            foto = form.cleaned_data['foto']
             ponto = Ponto(data=data, matricula=matricula, aves=aves, foto=foto)
             ponto.save()
 
@@ -29,6 +29,6 @@ def index(request):
 
 
 def historico(request):
-    pontos = Ponto.objects.all()[:7]
+    pontos = Ponto.objects.all().order_by("-pk")[:7]
     context = {'pontos': pontos}
     return render(request, 'historico.html', context)

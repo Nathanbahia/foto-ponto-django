@@ -1,20 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load bootstrap4 %}
-    
+
     {% block content %}
 
+    <div class="blank"></div>
     <div class="loading">
         <img src="{% static 'img/load.gif' %}" alt="gif de carregamento">
     </div>
-   
+
     <form method="post" action="" enctype="multipart/form-data" class="text-center mt-2">
 
         {% csrf_token %}
 
         {% bootstrap_form form %}
 
-        <div type="" class="" id="capturar"></div>       
+        <div type="" class="" id="capturar"></div>
 
         {% buttons %}
         <button class="btn btn-primary mt-2 salvar w-100 text-bold enviar">Enviar</button>
@@ -26,38 +27,49 @@
             <small>Histórico</small>
         </a>
 
-    </form>    
+    </form>
 
     <script>
 
-        $(".loading").hide();        
+        $(".blank").hide();
+        $(".loading").hide();
 
         $("#id_foto").hide();
 
         $("#id_foto").attr("capture", "camera");
 
         $("#capturar").on("click", function (){
-            $("#id_foto").trigger("click");            
+            $("#id_foto").trigger("click");
         })
 
         $(".enviar").on("click", function (){
             if (
                 $("#id_matricula").val() != "" &&
-                $("#id_aves").val)() != "" &&
+                $("#id_aves").val() != "" &&
                 $("#id_foto").val() != ""
             ) {
+                $(".blank").show();
+                $(".blank").css({
+                    "position": "absolute",
+                    "left": "0",
+                    "top": "0",
+                    "width": "100vw",
+                    "height": "100vh",
+                    "backgroundColor": "rgba(255,255,255,0.4)"
+
+                });
+
                 $(".loading").show();
                 $(".loading").css({
                     "position": "absolute",
-                    "left": "25%",
-                    "top": "20%",
-                    "width": "200px",
-                    "height": "200px"
+                    "left": "32%",
+                    "top": "30%",
+                    "z-index": "999999"
                 })
-            }            
+            }
         })
 
-        $("#id_foto").on("change", function () {            
+        $("#id_foto").on("change", function () {
             $("#capturar").css("backgroundColor", "green");
         })
 

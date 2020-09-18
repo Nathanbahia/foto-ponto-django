@@ -8,7 +8,6 @@ from .models import Ponto
 from datetime import datetime
 
 
-@login_required
 def index(request):
     if str(request.method) == "POST":
         form = PontoForm(request.POST, request.FILES)
@@ -56,14 +55,12 @@ def index(request):
     return render(request, 'index.html', context)
 
 
-@login_required
 def historico(request):
     pontos = Ponto.objects.all().order_by("-pk")[:7]
     context = {'pontos': pontos}
     return render(request, 'historico.html', context)
 
 
-@login_required
 def visualizar_foto(request, pk):
     foto = Ponto.objects.get(pk=pk)
     return render(request, 'visualizacao.html', {'foto': foto})

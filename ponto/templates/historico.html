@@ -4,12 +4,13 @@
 
     {% block content %}
 
-    <div class="text-center">
+    <div class="text-center mb-5">
         <h3>Últimas fotos</h3>
+        <a href="{% url 'index' %}" class="text-light mb-5">
+            <small>Retornar</small>    
+        </a>
     </div>
-    <a href="{% url 'index' %}" class="text-light mb-5">
-        <small>Retornar</small>    
-    </a>
+    
 
     {% for p in pontos %}
 
@@ -19,7 +20,7 @@
             <p>Mat: {{ p.matricula }} | Aves no local: {{ p.aves }}</p>
         </div>
         <div class="card-body text-center">
-            <img src="{{ p.foto.url }}" width="280">
+            <img src="{{ p.foto.url }}" style="max-width: 500px; marfin: auto;">
         </div>
     </div>
 

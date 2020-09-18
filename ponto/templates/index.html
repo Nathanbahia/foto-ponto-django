@@ -17,11 +17,11 @@
 
         <div type="" class="mb-5" id="capturar"></div>
 
+        <div class="message">{% bootstrap_messages %}</div>
+
         {% buttons %}
         <button class="btn btn-primary mt-2 salvar w-100 text-bold enviar">Enviar</button>
-        {% endbuttons %}
-
-        <div class="message">{% bootstrap_messages %}</div>
+        {% endbuttons %}        
 
         <a href="{% url 'historico' %}" class="text-light mb-5">
             <small>Histórico</small>

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+
+    {% block content %}
+
+    <div class="text-center mb-5">        
+        <a href="{% url 'index' %}" class="text-light mb-5">
+            <small>Retornar</small>    
+        </a>
+    </div>
+
+    <h2>Visualização do foto nº {{ foto.id }}</h2>
+    <h5>Matrícula: {{ foto.matricula }} - Data|Hora: {{ foto.data }}</h5>    
+
+    <img src="{{ foto.foto.url }}">
+
+    {% endblock %}

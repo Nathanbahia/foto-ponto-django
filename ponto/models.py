@@ -13,3 +13,6 @@ class Ponto(models.Model):
     foto = StdImageField("Foto", upload_to='media', blank=True, null=True)
     latitude = models.CharField("Latitude", max_length=30)
     longitude = models.CharField("Longitude", max_length=30)
+
+    def __str__(self):
+        return self.matricula

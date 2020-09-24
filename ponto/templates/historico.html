@@ -7,23 +7,27 @@
     <div class="text-center mb-5">
         <h3>Últimas fotos</h3>
         <a href="{% url 'index' %}" class="text-light mb-5">
-            <small>Retornar</small>    
+            <small>Retornar</small>
         </a>
     </div>
-    
+
 
     {% for p in pontos %}
 
     <div class="card p-3 mb-3">
         <div class="card-title">
-            <h5>Data: {{ p.data }}</h5>
-            <p>Mat: {{ p.matricula }} | Aves no local: {{ p.aves }}</p>
-            <p>Localização: {{ p.latitude }}, {{ p.longitude }}</p>
-        </div>
-        <div class="card-body text-center">
-            {% if p.foto %}
-                <img src="{{ p.foto.url }}" style="max-width: 500px; margin: auto;">
-            {% endif %}
+            <p><b>Data: {{ p.data }}</b></p>
+            <p>
+                Matrícula: {{ p.matricula }} <br>
+                Data|Hora: {{ p.data }} <br>
+                Aves no local: {{p.aves }} <br>
+                Localização: {{ p.latitude }}, {{ p.longitude }}
+            </p>
+            <div class="text-center">
+                {% if p.foto %}
+                    <img src="{{ p.foto.url }}" style="width: 300px">
+                {% endif %}
+            </div>
         </div>
     </div>
 

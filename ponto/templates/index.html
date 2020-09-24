@@ -21,7 +21,7 @@
 
         {% buttons %}
         <button class="btn mt-2 salvar w-100 text-bold enviar">Localização</button>
-        {% endbuttons %}        
+        {% endbuttons %}
 
         <a href="{% url 'historico' %}" class="text-light mb-5">
             <small>Histórico</small>
@@ -39,9 +39,9 @@
         $("#id_matricula").attr("min", "1");
         $("#id_matricula").attr("max", "999999");
 
-        $("#id_foto").hide();        
-        $("#id_latitude").parent().hide();        
-        $("#id_longitude").parent().hide();        
+        $("#id_foto").parent().hide();
+        $("#id_latitude").parent().hide();
+        $("#id_longitude").parent().hide();
 
         $("#id_foto").attr("capture", "camera");
 
@@ -51,7 +51,7 @@
 
         $(".enviar").toggleClass("btn-danger");
         $(".enviar").on("click", function (){
-            
+
             getLocation();
             $(".enviar").removeClass("btn-danger");
             $(".enviar").toggleClass("btn-primary");
@@ -92,19 +92,19 @@
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition,showError);
-            } else { 
+            } else {
                 console.log("Navegador não suporta geolocalização");
             }
         }
 
-        function showPosition(position) {            
+        function showPosition(position) {
             $("#id_latitude").val(position.coords.latitude.toString());
             $("#id_longitude").val(position.coords.longitude.toString());
 
             console.log($("#id_latitude").val(), $("#id_longitude").val());
         }
-        
-        function showError(error) {            
+
+        function showError(error) {
             switch(error.code) {
                 case error.PERMISSION_DENIED:
                     console.log("Usuário rejeitou pedido de acesso");
@@ -116,13 +116,13 @@
                     break;
                 case error.TIMEOUT:
                     console.log("O tempo expirou");
-                    break;      
+                    break;
                 case error.UNKNOWN_ERROR:
                     $("#id_latitude").val('Erro');
                     $("#id_longitude").val('Erro');
                 break;
             }
-        }        
+        }
 
     </script>
 

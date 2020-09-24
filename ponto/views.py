@@ -1,4 +1,3 @@
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.contrib import messages
 from django.core.mail import EmailMultiAlternatives
@@ -19,9 +18,9 @@ def index(request):
             lat = form.cleaned_data['latitude']
             lon = form.cleaned_data['longitude']
             ponto = Ponto(
-                data=data, 
-                matricula=matricula, 
-                aves=aves, 
+                data=data,
+                matricula=matricula,
+                aves=aves,
                 foto=foto,
                 latitude=lat,
                 longitude=lon
@@ -35,19 +34,20 @@ def index(request):
             <hr>
             <p>Data|Hora: {}</p>
             <p>Matrícula: {}</p>
+            <p>Aves no local: {}</p>
             <p>Localização: {}, {}</p>
-            <hr>            
+            <hr>
             <a href="https://pontosulconta.pythonanywhere.com/visualizacao/{}">
                 Visualize a o registro clicando aqui!
             </a>
-            """.format(data, matricula, lat, lon, ponto.pk)            
+            """.format(data, matricula, aves, lat, lon, ponto.pk)
 
             text_content = title
             from_mail = settings.EMAIL_HOST_USER
             msg = EmailMultiAlternatives(
-                title, 
-                text_content, 
-                from_mail, 
+                title,
+                text_content,
+                from_mail,
                 ['nathanbabahia@gmail.com', 'junioroliveiraeng@icloud.com']
             )
             msg.attach_alternative(html_content, "text/html")

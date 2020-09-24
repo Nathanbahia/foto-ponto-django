@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'x((^9@ds$1^89cr(mpur#we97&^)4bpmointwa8js21qa)*yr_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -129,6 +129,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'casadoscereais.comunicacao@gmail.com'
-EMAIL_HOST_PASSWORD = '33532177cc'
+EMAIL_HOST_USER = 'informacoesdocampo@gmail.com'
+EMAIL_HOST_PASSWORD = 'joaobatistapython'
 EMAIL_PORT = 587

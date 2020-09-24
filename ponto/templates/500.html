@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+
+    {% block content %}
+
+    <h1>Erro: 500</h1>
+    <p>A página que você tentou acessar não existe ou não está disponível.</p>
+    <p>Se o erro persistir, entre em contato com o administrador do sistema.</p>
+    <a href="{% url 'index' %}">Clique aqui para voltar à página inicial.</a>
+
+    {% endblock %}

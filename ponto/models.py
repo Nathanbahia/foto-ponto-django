@@ -1,6 +1,7 @@
 from django.db import models
 from stdimage.models import StdImageField
 
+
 class Ponto(models.Model):
     AVES = [
         ('SIM', 'Sim'),

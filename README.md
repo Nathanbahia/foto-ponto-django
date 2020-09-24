@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Nathanbahia/foto-ponto-django.svg?branch=master)](https://travis-ci.com/Nathanbahia/foto-ponto-django)
+
 # Sistema de Ponto via Foto em Django
 
 [Link do Projeto](https://pontosulconta.pythonanywhere.com/)

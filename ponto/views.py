@@ -16,7 +16,16 @@ def index(request):
             matricula = form.cleaned_data['matricula']
             aves = form.cleaned_data['aves']
             foto = form.cleaned_data['foto']
-            ponto = Ponto(data=data, matricula=matricula, aves=aves, foto=foto)
+            lat = form.cleaned_data['latitude']
+            lon = form.cleaned_data['longitude']
+            ponto = Ponto(
+                data=data, 
+                matricula=matricula, 
+                aves=aves, 
+                foto=foto,
+                latitude=lat,
+                longitude=lon
+                )
             ponto.save()
 
             title = str(data)
@@ -26,11 +35,12 @@ def index(request):
             <hr>
             <p>Data|Hora: {}</p>
             <p>Matrícula: {}</p>
+            <p>Localização: {}, {}</p>
             <hr>            
             <a href="https://pontosulconta.pythonanywhere.com/visualizacao/{}">
-                Visualize a foto clicando aqui!
+                Visualize a o registro clicando aqui!
             </a>
-            """.format(data, matricula, ponto.pk)
+            """.format(data, matricula, lat, lon, ponto.pk)            
 
             text_content = title
             from_mail = settings.EMAIL_HOST_USER
@@ -38,15 +48,15 @@ def index(request):
                 title, 
                 text_content, 
                 from_mail, 
-                ['nathanbabahia@gmail.com', 'junioroliveiraeng@icloud.com', ]
+                ['nathanbabahia@gmail.com', 'junioroliveiraeng@icloud.com']
             )
             msg.attach_alternative(html_content, "text/html")
             msg.send()
 
-            messages.success(request, "Foto salva com sucesso.")
+            messages.success(request, "Registro salvo com sucesso.")
             form = PontoForm()
         else:
-            messages.error(request, "Falha ao salvar foto.")
+            messages.error(request, "Erro ao salvar registro.")
     else:
         form = PontoForm()
 

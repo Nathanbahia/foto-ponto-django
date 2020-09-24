@@ -10,9 +10,12 @@
         </a>
     </div>
 
-    <h2>Visualização do foto nº {{ foto.id }}</h2>
-    <h5>Matrícula: {{ foto.matricula }} - Data|Hora: {{ foto.data }}</h5>    
+    <h2>Registro nº {{ foto.id }}</h2>
+    <h5>Matrícula: {{ foto.matricula }} - Data|Hora: {{ foto.data }}</h5> 
+    <h5>Localização: {{ foto.latitude }}, {{ foto.longitude }}</h5>   
 
-    <img src="{{ foto.foto.url }}">
+    {% if p.foto %}
+        <img src="{{ foto.foto.url }}">
+    {% endif %}
 
     {% endblock %}

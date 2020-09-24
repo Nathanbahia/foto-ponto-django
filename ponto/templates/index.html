@@ -20,7 +20,7 @@
         <div class="message">{% bootstrap_messages %}</div>
 
         {% buttons %}
-        <button class="btn btn-primary mt-2 salvar w-100 text-bold enviar">Enviar</button>
+        <button class="btn mt-2 salvar w-100 text-bold enviar">Localização</button>
         {% endbuttons %}        
 
         <a href="{% url 'historico' %}" class="text-light mb-5">
@@ -39,7 +39,9 @@
         $("#id_matricula").attr("min", "1");
         $("#id_matricula").attr("max", "999999");
 
-        $("#id_foto").hide();
+        $("#id_foto").hide();        
+        $("#id_latitude").parent().hide();        
+        $("#id_longitude").parent().hide();        
 
         $("#id_foto").attr("capture", "camera");
 
@@ -47,12 +49,20 @@
             $("#id_foto").trigger("click");
         })
 
+        $(".enviar").toggleClass("btn-danger");
         $(".enviar").on("click", function (){
+            
+            getLocation();
+            $(".enviar").removeClass("btn-danger");
+            $(".enviar").toggleClass("btn-primary");
+            $(".enviar").text("Enviar");
             if (
                 parseInt($("#id_matricula").val()) > 0 &&
                 parseInt($("#id_matricula").val()) <= 999999 &&
                 $("#id_matricula").val() != "" &&
-                $("#id_aves").val() != ""
+                $("#id_aves").val() != "" &&
+                $("#id_latitude").val() != "" &&
+                $("#id_longitude").val() != ""
             ) {
                 $(".blank").show();
                 $(".blank").css({
@@ -78,6 +88,41 @@
         $("#id_foto").on("change", function () {
             $("#capturar").css("backgroundColor", "#007bff");
         })
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition,showError);
+            } else { 
+                console.log("Navegador não suporta geolocalização");
+            }
+        }
+
+        function showPosition(position) {            
+            $("#id_latitude").val(position.coords.latitude.toString());
+            $("#id_longitude").val(position.coords.longitude.toString());
+
+            console.log($("#id_latitude").val(), $("#id_longitude").val());
+        }
+        
+        function showError(error) {            
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    console.log("Usuário rejeitou pedido de acesso");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    console.log("Localização indisponível");
+                    $("#id_latitude").val('Indisponível');
+                    $("#id_longitude").val('Indisponível');
+                    break;
+                case error.TIMEOUT:
+                    console.log("O tempo expirou");
+                    break;      
+                case error.UNKNOWN_ERROR:
+                    $("#id_latitude").val('Erro');
+                    $("#id_longitude").val('Erro');
+                break;
+            }
+        }        
 
     </script>
 

@@ -18,9 +18,12 @@
         <div class="card-title">
             <h5>Data: {{ p.data }}</h5>
             <p>Mat: {{ p.matricula }} | Aves no local: {{ p.aves }}</p>
+            <p>Localização: {{ p.latitude }}, {{ p.longitude }}</p>
         </div>
         <div class="card-body text-center">
-            <img src="{{ p.foto.url }}" style="max-width: 500px; marfin: auto;">
+            {% if p.foto %}
+                <img src="{{ p.foto.url }}" style="max-width: 500px; margin: auto;">
+            {% endif %}
         </div>
     </div>
 

@@ -11,7 +11,8 @@ Como comprovação da ida até às estações, os colaboradores escalados para t
 **O sistema deve conter os seguintes inputs:**
 1. Foto
 2. Data e horários do sistema
-3. Nome do colaborador obtido através do login
+3. Matricula do funcionário
+4. Localização geográfica
 
 **O sistema deve conter:**
 1. Tela de login

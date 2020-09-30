@@ -18,10 +18,30 @@
         Localização: {{ foto.latitude }}, {{ foto.longitude }}
     </p>
 
-    <div class="text-center">
+    <div class="text-left mb-5 w-100">
         {% if foto.foto %}
-            <img src="{{ foto.foto.url }}">
+            <img src="{{ foto.foto.url }}" style="width: 340px;" class="img-thumbnail">
+
+            <!-- Button trigger modal -->
+            <br>
+            <button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#foto">
+              Ver foto em tamanho grande
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade modal-lg" id="foto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <img src="{{ foto.foto.url }}" class="w-100">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         {% endif %}
     </div>
+
+
 
     {% endblock %}

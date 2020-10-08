@@ -17,10 +17,8 @@
 
         <div type="" class="mb-5" id="capturar"></div>
 
-        <div class="message">{% bootstrap_messages %}</div>
-
         {% buttons %}
-        <button class="btn mt-1 salvar w-100 text-bold enviar">Localização</button>
+            <button class="btn mt-1 salvar w-100 text-bold enviar">Localização</button>
         {% endbuttons %}
 
         <a href="{% url 'historico' %}" class="text-light mb-5">
@@ -108,6 +106,7 @@
             switch(error.code) {
                 case error.PERMISSION_DENIED:
                     console.log("Usuário rejeitou pedido de acesso");
+                    alert("Erro! Você precisa conceder acesso à sua localização. Feche o aplicativo e tente novamente!")
                     break;
                 case error.POSITION_UNAVAILABLE:
                     console.log("Localização indisponível");
@@ -116,6 +115,7 @@
                     break;
                 case error.TIMEOUT:
                     console.log("O tempo expirou");
+                    alert("Erro! Feche o aplicativo e tente novamente!")
                     break;
                 case error.UNKNOWN_ERROR:
                     $("#id_latitude").val('Erro');

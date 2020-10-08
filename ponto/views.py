@@ -48,7 +48,7 @@ def index(request):
                 title,
                 text_content,
                 from_mail,
-                ['nathanbabahia@gmail.com', 'junioroliveiraeng@icloud.com', 'sandro.barreto@sulgipe.com.br']
+                ['junioroliveiraeng@icloud.com', 'sandro.barreto@sulgipe.com.br']
             )
             msg.attach_alternative(html_content, "text/html")
             msg.send()
